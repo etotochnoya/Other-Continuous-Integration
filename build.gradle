@@ -13,13 +13,20 @@ dependencies {
     testImplementation "org.assertj:assertj-core:3.24.2"
 }
 
-group = 'org.douggschwind'
-version = '1.0-SNAPSHOT'
-description = 'Games'
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+
+jacoco {
+    toolVersion = "0.8.9"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
 }
 
 tasks.withType(JavaCompile) {
