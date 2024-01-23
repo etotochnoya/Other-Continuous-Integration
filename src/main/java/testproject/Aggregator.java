@@ -3,7 +3,7 @@ package testproject;
 /** Class that aggregates a lot of values into one summ */
 class Aggregator {
     private double sum = 0;
-
+//its me))
     /**
      * Add a value to the aggregated number.
      * @param value number to add to the sum
